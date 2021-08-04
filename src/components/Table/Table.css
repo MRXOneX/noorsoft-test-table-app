@@ -22,7 +22,7 @@
     font-weight: 600;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     text-align: center;
     height: 40px;
@@ -36,10 +36,10 @@
     margin: -12px 0 0 15px;
     width: 55px;
 }
-.blockName {
+.blockNameLogo {
     padding: 10px 0 0 30%;
 }
-.blockName p {
+.blockNameLogo p {
     color: whitesmoke;
     margin: 0;
     font-size: 24px;
@@ -59,17 +59,18 @@
     width: 100%;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     background-color: #EFEBEB;
 }
-.blockNickname,
-.blockText,
-.blockId {
-    border-right: 1px solid #a0a0a6;
+blockNickname
+.blockName {
     padding-top: 5px;
     font-size: 14px;
 }
-.blockText button {
+.blockName {
+    border-right: 1px solid #a0a0a6;
+}
+.blockNickname button {
     font-size: 14px;
     outline: none;
     border: none;
@@ -77,32 +78,30 @@
     cursor: pointer;
     background-color: #EFEBEB;
 }
-.blockText button:nth-child(3) {
+.blockNickname button:nth-child(3) {
     float: left;
 }
-.blockText button:nth-child(3):hover {
+.blockNickname button:nth-child(3):hover {
     color: #BCBBF2;
     float: left;
 }
 .blockNickname input,
-.blockText input,
-.blockId input {
-    margin: 0 0 0 5px;
+.blockName input {
+    margin: 5px 0 0 10px;
     outline: none;
     width: 90%;
     height: 25px;
     border: 1px solid yellowgreen;
 }
 .blockNickname div,
-.blockText div,
-.blockId div {
+.blockName div {
     display: flex;
     justify-content: center;
     align-items: center;
     word-wrap: break-word;
     overflow: hidden;
     width: 95%;
-    margin: 0 auto;
+    margin: 5px auto;
     height: 30px;
     background-color: white;
     border-radius: 5px;
@@ -110,16 +109,12 @@
     -moz-box-shadow: 0 0 10px -4px rgba(159, 146, 146, 0.29);
     box-shadow: 0 0 10px -4px rgba(159, 146, 146, 0.29);
 }
-.blockNickname {
-    border-right: 1px solid #a0a0a6;
-}
-
 .blockAdd {
     width: 96%;
     padding: 5px 2px 0 2px;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     position:absolute;
     bottom: 0;
     left: 0;
@@ -134,7 +129,7 @@
 } 
 .blockAdd div input {
     background-color: whitesmoke;
-    width: 170px;
+    width: 95%;
     border-radius: 10px;
     font-size: 12px;
     height: 30px;

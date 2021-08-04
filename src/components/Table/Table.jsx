@@ -12,7 +12,7 @@ const Table = () => {
     React.useEffect(() => {
         try {
             (async () => {
-                await axios.get('http://localhost:3001/records')
+                await axios.get('http://178.128.196.163:3000/api/records')
                     .then(response => setRecords(response.data))
                 setIsLoader(true)
             })()
@@ -21,34 +21,48 @@ const Table = () => {
         }
     }, [])
 
-    const onUpdateRecord = async (obj) => {
+    const onUpdateRecord = (obj) => {
+        const data = {
+            name: obj.name,
+            surname: obj.surname
+        }
         try {
-            await axios.put(`http://localhost:3001/records/${obj.id}`, {
-                id: obj.id,
-                nickname: obj.nickname,
-                text: obj.text,
+            axios.post(`http://178.128.196.163:3000/api/records/${obj.id}`, {
+                data
             })
+            setRecords(prev => prev.filter(item => item._id === obj.id) && [{
+                data
+            }])
         } catch (e) {
             console.log('Не удалось обновить запись: ', e)
         }
     }
 
-    const onDeleteRecord = async (id) => {
+    const onDeleteRecord =  (id) => {
         try {
-            await axios.delete(`http://localhost:3001/records/${id}`)
+            axios.delete(`http://178.128.196.163:3000/api/records/${id}`)
+            setRecords(prev => prev.filter(item => item._id !== id))
         } catch (e) {
             console.log('Не удалось удалить запись')
         }
     }
-    const onAddRecord =  (obj) => {
+    const onAddRecord = (obj) => {
+        const data = {
+            name: obj.name,
+            surname: obj.surname
+        }
         try {
-            axios.post(`http://localhost:3001/records`, obj)
+            axios.put(`http://178.128.196.163:3000/api/records`, {
+                data
+            })
                 .catch(function (error) {
                     if(error.response.status === 500) {
                         alert(`Введенный ID-${obj.id} существует`)
                     }
                 });
-
+                setRecords(prev => [...prev, {
+                    data
+                }])
 
         } catch (e) {
             console.log('Не удалось добавить запись: ', e)
@@ -58,31 +72,24 @@ const Table = () => {
     const validate = values => {
         const errors = {};
 
-        if (!values.id) {
-            errors.id = 'Обязательно для заполнения';
-        } else if (values.id.length > 5) {
-            errors.id = 'Должно быть не более 5 символов';
+        if (!values.name) {
+            errors.name = 'Обязательно для заполнения';
+        } else if (values.name.length > 15) {
+            errors.name = 'Должно быть не более 15 символов';
         }
 
-        if (!values.nickname) {
-            errors.nickname = 'Обязательно для заполнения';
-        } else if (values.nickname.length > 15) {
-            errors.nickname = 'Должно быть не более 15 символов';
-        }
-
-        if (!values.text) {
-            errors.text = 'Обязательно для заполнения';
-        } else if (values.text.length > 25) {
-            errors.text = 'Должно быть не более 25 символов';
+        if (!values.surname) {
+            errors.surname = 'Обязательно для заполнения';
+        } else if (values.surname.length > 15) {
+            errors.surname = 'Должно быть не более 15 символов';
         }
 
         return errors;
     };
     const formik = useFormik({
         initialValues: {
-            id: '',
-            nickname: '',
-            text: ''
+            name: '',
+            surname: ''
         },
         validate,
         onSubmit: values => {
@@ -90,28 +97,27 @@ const Table = () => {
 
         },
     });
-
     return (
         <div className='wrapper'>
             <div className='header'>
                 <div className='blockLogo'>
                     <img src={logo} alt=""/>
                 </div>
-                <div className='blockName'>
+                <div className='blockNameLogo'>
                     <p>React table</p>
                 </div>
             </div>
             <div className='menuNav'>
-                <div>ID</div>
-                <div>Nickname</div>
-                <div>Text</div>
+                <div>Name</div>
+                <div>Surname</div>
             </div>
             <div className='content'>
                 {isLoader ?
                     <div className='blockTable'>
                         {records &&
                         records.map((item, index) => (
-                            <ItemTable key={index} {...item}
+                            <ItemTable key={index}
+                                       item={item}
                                        validate={validate}
                                        onUpdateRecord={onUpdateRecord}
                                        onDeleteRecord={onDeleteRecord}/>
@@ -124,36 +130,24 @@ const Table = () => {
                     <div>
                         <form onSubmit={formik.handleSubmit}>
                             <input
-                                id='id'
-                                name='id'
-                                type='number'
-                                placeholder={`${formik.errors.id ? `${formik.errors.id}` : 'Введите id...'}`}
+                                id='name'
+                                name='name'
+                                type='text'
+                                placeholder={`${formik.errors.name ? `${formik.errors.name}` : 'Введите name...'}`}
                                 onChange={formik.handleChange}
-                                value={formik.values.id}
+                                value={formik.values.name}
                             />
                         </form>
                     </div>
                     <div>
                         <form onSubmit={formik.handleSubmit}>
                             <input
-                                id='nickname'
-                                name='nickname'
+                                id='surname'
+                                name='surname'
                                 type='text'
-                                placeholder={`${formik.errors.nickname ? `${formik.errors.nickname}` : 'Введите nickname...'}`}
+                                placeholder={`${formik.errors.surname ? `${formik.errors.surname}` : 'Введите surname...'}`}
                                 onChange={formik.handleChange}
-                                value={formik.values.nickname}
-                            />
-                        </form>
-                    </div>
-                    <div>
-                        <form onSubmit={formik.handleSubmit}>
-                            <input
-                                id='text'
-                                name='text'
-                                type='text'
-                                placeholder={`${formik.errors.text ? `${formik.errors.text}` : 'Введите text...'}`}
-                                onChange={formik.handleChange}
-                                value={formik.values.text}
+                                value={formik.values.surname}
                             />
                             <div className='btnAdd'>
                                 <button type='submit'>Add</button>
