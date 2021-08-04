@@ -1,0 +1,206 @@
+.wrapper {
+    margin: 80px auto;
+    width: 570px;
+    height: 470px;
+    max-height: 600px;
+    background-color: #f6f2f2;
+    border-radius: 5px;
+    position:relative
+}
+/* Header */
+.header {
+    height: 50px;
+    width: 100%;
+    background-color: #BCBBF2;
+    border-radius: 5px 5px 0 0;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 6fr;
+}
+.menuNav {
+    font-size: 20px;
+    font-weight: 600;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    height: 40px;
+    width: 100%;
+    border-radius: 0 0 30px 30px;
+    background-color: #EFEBEB;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.13);
+    border-bottom: 1px solid #BCBBF2;
+}
+.blockLogo img {
+    margin: -12px 0 0 15px;
+    width: 55px;
+}
+.blockName {
+    padding: 10px 0 0 30%;
+}
+.blockName p {
+    color: whitesmoke;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+.content {
+    height: auto;
+}
+.blockTable {
+    width: 100%;
+    height: 260px;
+    overflow-y: auto;
+}
+.itemTable {
+    margin-top: 10px;
+    height: 54px;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #EFEBEB;
+}
+.blockNickname,
+.blockText,
+.blockId {
+    border-right: 1px solid #a0a0a6;
+    padding-top: 5px;
+    font-size: 14px;
+}
+.blockText button {
+    font-size: 14px;
+    outline: none;
+    border: none;
+    float: right;
+    cursor: pointer;
+    background-color: #EFEBEB;
+}
+.blockText button:nth-child(3) {
+    float: left;
+}
+.blockText button:nth-child(3):hover {
+    color: #BCBBF2;
+    float: left;
+}
+.blockNickname input,
+.blockText input,
+.blockId input {
+    margin: 0 0 0 5px;
+    outline: none;
+    width: 90%;
+    height: 25px;
+    border: 1px solid yellowgreen;
+}
+.blockNickname div,
+.blockText div,
+.blockId div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-wrap: break-word;
+    overflow: hidden;
+    width: 95%;
+    margin: 0 auto;
+    height: 30px;
+    background-color: white;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 10px -4px rgba(159, 146, 146, 0.29);
+    -moz-box-shadow: 0 0 10px -4px rgba(159, 146, 146, 0.29);
+    box-shadow: 0 0 10px -4px rgba(159, 146, 146, 0.29);
+}
+.blockNickname {
+    border-right: 1px solid #a0a0a6;
+}
+
+.blockAdd {
+    width: 96%;
+    padding: 5px 2px 0 2px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto 10px;
+    height: 75px;
+    background-color: white;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 10px -4px rgba(159, 146, 146, 0.29);
+    -moz-box-shadow: 0 0 10px -4px rgba(159, 146, 146, 0.29);
+    box-shadow: 0 0 10px -4px rgba(159, 146, 146, 0.29);
+} 
+.blockAdd div input {
+    background-color: whitesmoke;
+    width: 170px;
+    border-radius: 10px;
+    font-size: 12px;
+    height: 30px;
+    padding: 3px;
+    border: none;
+    outline: none;
+}
+.blockAdd div input:nth-child(1) {
+    margin-left: 2px;
+}
+.btnAdd {
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 32px;
+    width: 20%;
+}
+.btnAdd button {
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 30px 30px 0 0;
+    border: 2px solid #BCBBF2;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    outline: antiquewhite;
+}
+.btnAdd button:hover {
+    transition: .2s;
+    background-color: #BCBBF2;
+    color: white;
+}
+
+
+
+::-webkit-scrollbar-button {
+    background-image:url('');
+    background-repeat:no-repeat;
+    width:6px;
+    height:0px
+}
+
+::-webkit-scrollbar-track {
+    background-color:#32312e;
+    box-shadow:0px 0px 3px #000 inset;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color:#5fcddb;
+    box-shadow:0px 1px 1px #fff inset;
+    background-image:url('https://yraaa.ru/_pu/24/59610063.png');
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+::-webkit-resizer{
+    background-image:url('');
+    background-repeat:no-repeat;
+    width:7px;
+    height:0px
+}
+
+::-webkit-scrollbar{
+    width: 11px;
+}

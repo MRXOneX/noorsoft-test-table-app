@@ -1,0 +1,34 @@
+{
+  "records": [
+    {
+      "id": 0,
+      "nickname": "Loki",
+      "text": "The God of Guile"
+    },
+    {
+      "id": 2,
+      "nickname": "Coughtedua",
+      "text": "human"
+    },
+    {
+      "id": 3,
+      "nickname": "Couldoode",
+      "text": "human"
+    },
+    {
+      "id": 4,
+      "nickname": "SwabbeyWasi",
+      "text": "human"
+    },
+    {
+      "id": 5,
+      "nickname": "GeormscCharms",
+      "text": "human"
+    },
+    {
+      "id": 1,
+      "nickname": "Top",
+      "text": "God Of Thunder"
+    }
+  ]
+}
