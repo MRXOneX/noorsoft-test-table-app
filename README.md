@@ -1,4 +1,4 @@
-Запустить проект: npm start Запустить json-server:
+Запустить проект: npm start
 
 
 
